@@ -1,0 +1,54 @@
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "1bP-XJ-a4n"; */
+"1bP-XJ-a4n.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "6Xl-kB-udn"; */
+"6Xl-kB-udn.text" = "Label";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "9g0-SG-Tlg"; */
+"9g0-SG-Tlg.text" = "0";
+
+/* Class = "UILabel"; text = "Enter the number of servings per day"; ObjectID = "HmM-WB-8P3"; */
+"HmM-WB-8P3.text" = "Enter the number of servings per day";
+
+/* Class = "UITextField"; placeholder = "such as first dishes"; ObjectID = "HqA-Vo-ITD"; */
+"HqA-Vo-ITD.placeholder" = "such as first dishes";
+
+/* Class = "UITextField"; placeholder = "%"; ObjectID = "O4H-dh-uts"; */
+"O4H-dh-uts.placeholder" = "%";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "RqT-py-EIT"; */
+"RqT-py-EIT.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Xix-TL-KtT"; */
+"Xix-TL-KtT.text" = "Label";
+
+/* Class = "UITextField"; placeholder = "%"; ObjectID = "fmT-0P-0bd"; */
+"fmT-0P-0bd.placeholder" = "%";
+
+/* Class = "UILabel"; text = "Input number of ingredients"; ObjectID = "ljE-D0-XKq"; */
+"ljE-D0-XKq.text" = "Input number of ingredients";
+
+/* Class = "UITextField"; placeholder = "%"; ObjectID = "mgb-PN-UFG"; */
+"mgb-PN-UFG.placeholder" = "%";
+
+/* Class = "UILabel"; text = "Enter the name of the desired dishes"; ObjectID = "nb2-8p-0lz"; */
+"nb2-8p-0lz.text" = "Enter the name of the desired dishes";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "ncX-fo-86o"; */
+"ncX-fo-86o.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "tEv-Hf-Hrq"; */
+"tEv-Hf-Hrq.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "wA3-Pp-9IN"; */
+"wA3-Pp-9IN.text" = "Label";
+
+/* Class = "UINavigationItem"; title = "RestLab"; ObjectID = "xfC-0u-Ucb"; */
+"xfC-0u-Ucb.title" = "RestLab";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "yly-2e-Rlb"; */
+"yly-2e-Rlb.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Enter the percentage of the desired dishes "; ObjectID = "z4g-cg-9rp"; */
+"z4g-cg-9rp.text" = "Enter the percentage of the desired dishes ";
