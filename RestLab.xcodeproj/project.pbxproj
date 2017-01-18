@@ -9,19 +9,25 @@
 /* Begin PBXBuildFile section */
 		8408E9F41E18729700D45B45 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8408E9F31E18729700D45B45 /* ThirdViewController.swift */; };
 		8430A3A91E143F3F001C83C4 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8430A3A81E143F3F001C83C4 /* SecondViewController.swift */; };
+		84413A271E1F3086008DDD78 /* launch.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84413A261E1F3086008DDD78 /* launch.jpg */; };
 		8448E3091DDD1CB000F74B5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8448E3081DDD1CB000F74B5A /* AppDelegate.swift */; };
 		8448E30B1DDD1CB000F74B5A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8448E30A1DDD1CB000F74B5A /* ViewController.swift */; };
 		8448E30E1DDD1CB000F74B5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8448E30C1DDD1CB000F74B5A /* Main.storyboard */; };
 		8448E3101DDD1CB000F74B5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8448E30F1DDD1CB000F74B5A /* Assets.xcassets */; };
 		8448E3131DDD1CB000F74B5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8448E3111DDD1CB000F74B5A /* LaunchScreen.storyboard */; };
 		845730101E12EF8E00A5368B /* 4SqtReFLCz4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8457300F1E12EF8D00A5368B /* 4SqtReFLCz4.jpg */; };
-		848008FC1E1C5E0200B94C66 /* ResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848008FB1E1C5E0200B94C66 /* ResultCell.swift */; };
+		84ADE4531E2D81E600B7FFFF /* launchRestLab.png in Resources */ = {isa = PBXBuildFile; fileRef = 84ADE4521E2D81E600B7FFFF /* launchRestLab.png */; };
+		84FB6CD51E1E7E5100E4A8D4 /* Ingredients List Filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 84FB6CD41E1E7E5100E4A8D4 /* Ingredients List Filled-50.png */; };
+		84FB6CD71E1E84F200E4A8D4 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FB6CD61E1E84F100E4A8D4 /* Food.swift */; };
+		84FE3D151E2C42BF00AA0CB6 /* Welcome1.png in Resources */ = {isa = PBXBuildFile; fileRef = 84FE3D141E2C42BF00AA0CB6 /* Welcome1.png */; };
+		84FE3D171E2C437300AA0CB6 /* Regular.png in Resources */ = {isa = PBXBuildFile; fileRef = 84FE3D161E2C437300AA0CB6 /* Regular.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8408E9F31E18729700D45B45 /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		8430A3A71E143E67001C83C4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		8430A3A81E143F3F001C83C4 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		84413A261E1F3086008DDD78 /* launch.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = launch.jpg; sourceTree = "<group>"; };
 		8448E3051DDD1CB000F74B5A /* RestLab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestLab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8448E3081DDD1CB000F74B5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8448E30A1DDD1CB000F74B5A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -30,7 +36,11 @@
 		8448E3121DDD1CB000F74B5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8448E3141DDD1CB000F74B5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8457300F1E12EF8D00A5368B /* 4SqtReFLCz4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4SqtReFLCz4.jpg; sourceTree = "<group>"; };
-		848008FB1E1C5E0200B94C66 /* ResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultCell.swift; sourceTree = "<group>"; };
+		84ADE4521E2D81E600B7FFFF /* launchRestLab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launchRestLab.png; sourceTree = "<group>"; };
+		84FB6CD41E1E7E5100E4A8D4 /* Ingredients List Filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ingredients List Filled-50.png"; sourceTree = "<group>"; };
+		84FB6CD61E1E84F100E4A8D4 /* Food.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
+		84FE3D141E2C42BF00AA0CB6 /* Welcome1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Welcome1.png; sourceTree = "<group>"; };
+		84FE3D161E2C437300AA0CB6 /* Regular.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Regular.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,10 +79,15 @@
 				8408E9F31E18729700D45B45 /* ThirdViewController.swift */,
 				8448E30C1DDD1CB000F74B5A /* Main.storyboard */,
 				8448E30F1DDD1CB000F74B5A /* Assets.xcassets */,
+				84FE3D161E2C437300AA0CB6 /* Regular.png */,
+				84ADE4521E2D81E600B7FFFF /* launchRestLab.png */,
 				8448E3111DDD1CB000F74B5A /* LaunchScreen.storyboard */,
+				84FE3D141E2C42BF00AA0CB6 /* Welcome1.png */,
+				84FB6CD41E1E7E5100E4A8D4 /* Ingredients List Filled-50.png */,
+				84413A261E1F3086008DDD78 /* launch.jpg */,
 				8448E3141DDD1CB000F74B5A /* Info.plist */,
 				8457300F1E12EF8D00A5368B /* 4SqtReFLCz4.jpg */,
-				848008FB1E1C5E0200B94C66 /* ResultCell.swift */,
+				84FB6CD61E1E84F100E4A8D4 /* Food.swift */,
 			);
 			path = RestLab;
 			sourceTree = "<group>";
@@ -109,6 +124,7 @@
 				TargetAttributes = {
 					8448E3041DDD1CB000F74B5A = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = PX8TS3NF66;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -136,9 +152,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84FE3D171E2C437300AA0CB6 /* Regular.png in Resources */,
+				84FB6CD51E1E7E5100E4A8D4 /* Ingredients List Filled-50.png in Resources */,
+				84FE3D151E2C42BF00AA0CB6 /* Welcome1.png in Resources */,
 				845730101E12EF8E00A5368B /* 4SqtReFLCz4.jpg in Resources */,
+				84413A271E1F3086008DDD78 /* launch.jpg in Resources */,
 				8448E3131DDD1CB000F74B5A /* LaunchScreen.storyboard in Resources */,
 				8448E3101DDD1CB000F74B5A /* Assets.xcassets in Resources */,
+				84ADE4531E2D81E600B7FFFF /* launchRestLab.png in Resources */,
 				8448E30E1DDD1CB000F74B5A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -153,8 +174,8 @@
 				8430A3A91E143F3F001C83C4 /* SecondViewController.swift in Sources */,
 				8448E30B1DDD1CB000F74B5A /* ViewController.swift in Sources */,
 				8408E9F41E18729700D45B45 /* ThirdViewController.swift in Sources */,
-				848008FC1E1C5E0200B94C66 /* ResultCell.swift in Sources */,
 				8448E3091DDD1CB000F74B5A /* AppDelegate.swift in Sources */,
+				84FB6CD71E1E84F200E4A8D4 /* Food.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,7 +297,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = PX8TS3NF66;
 				INFOPLIST_FILE = RestLab/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ImagineIdeas.RestLab;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -288,7 +312,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = PX8TS3NF66;
 				INFOPLIST_FILE = RestLab/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ImagineIdeas.RestLab;
 				PRODUCT_NAME = "$(TARGET_NAME)";

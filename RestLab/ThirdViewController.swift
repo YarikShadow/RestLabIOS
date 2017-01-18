@@ -8,19 +8,38 @@
 
 import UIKit
 
-class ThirdViewController: UIViewController {
+class ThirdViewController: UIViewController{
+    
+    var values:Array<Any>!
     
     //, UITableViewDelegate, UITableViewDataSource
+  
     
-    var Students: [String] = []
-
+    @IBOutlet weak var tableView: UITableView!
+  
     override func viewDidLoad() {
         super.viewDidLoad()
-
-         self.Students = ["Tom", "Bill", "Tom", "Joe", "Tom"]
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+            else {
+                return UITableViewCell()
+        }
+        
+        let foods = values[indexPath.row]
+        cell.textLabel?.text = (foods as AnyObject).name
+        cell.detailTextLabel?.text = String(values.count)
+        
+        return cell
     }
 
-    @IBOutlet weak var Table: UITableView!
+    
+  
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
      
@@ -46,22 +65,7 @@ class ThirdViewController: UIViewController {
         StreamDataService.instance.removeAllStreams()
     }
     */
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-        
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return Students.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = Table.dequeueReusableCell(withIdentifier: "CellIdentifier", for: indexPath) as UITableViewCell
-        cell.textLabel?.text = Students[indexPath.row]
-        
-        return cell
-    }
+  
     /*
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -105,3 +109,5 @@ class ThirdViewController: UIViewController {
     */
 */
 }
+
+

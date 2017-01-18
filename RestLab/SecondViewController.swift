@@ -9,7 +9,8 @@
 import UIKit
 
 class SecondViewController: UIViewController {
-
+    
+    var values:Array<Any>!
     // Input variables
     
     @IBOutlet weak var numberPerDay: UITextField!
@@ -32,6 +33,7 @@ class SecondViewController: UIViewController {
     @IBOutlet weak var percentageTwoResult: UILabel!
     @IBOutlet weak var percentageThreeResult: UILabel!
     @IBOutlet weak var dishesPerNameResult: UILabel!
+    @IBOutlet weak var desiredDishesName: UILabel!
     
     //end
     
@@ -58,6 +60,7 @@ class SecondViewController: UIViewController {
         
      }
     
+    
     @IBAction func OnOffTwo(_ sender: UISwitch) {
         
         second.isHidden = false
@@ -66,9 +69,16 @@ class SecondViewController: UIViewController {
     }
     //
     
-    // MARK: Main func
+    @IBAction func NameTyping(_ sender: UITextField) {
+        
+        desiredDishesName.text = nameOfDishes.text
+        
+    }
+    // MARK: Main func //
     
     func  calculating() {
+        
+        if(self.numberPerDay.text != "" && self.percentageDishesOne.text != "" ) {
         
         let resultOne:Double = (Double(numberPerDay.text!)!/Double(percentageDishesOne.text!)!) * Double(100)
         mainResult.text = String(Int(resultOne))
@@ -95,9 +105,17 @@ class SecondViewController: UIViewController {
             }
         }
         
+        } else {
+            let alert = UIAlertController(title: "You did not write values", message: "Please fill first and second fields at least", preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            
+            alert.addAction(cancelAction)
+            
+            present(alert, animated: true, completion: nil)
+        }
     }
     
-    //
+    ///////
     
     @IBOutlet weak var showIngredTable: UIBarButtonItem!
     var isCalculated:Bool = false
@@ -118,17 +136,28 @@ class SecondViewController: UIViewController {
         super.viewDidLoad()
 
         title =  "Values"
+        
+        
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func Quit(_ sender: UIButton) {
-        
-        exit(10)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Third" {
+            if let thirdVC = segue.destination as? ThirdViewController {
+                if let values = sender as? Array<Any> {
+                    thirdVC.values = values
+                }
+            }
+        }
     }
+
+    
     
     
 
