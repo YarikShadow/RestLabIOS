@@ -8,106 +8,81 @@
 
 import UIKit
 
-class ThirdViewController: UIViewController{
+class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var values:Array<Any>!
-    
-    //, UITableViewDelegate, UITableViewDataSource
-  
-    
-    @IBOutlet weak var tableView: UITableView!
-  
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    var nameIncomeArray: [String]!
+    var incomeNames:[String]!{
+        didSet{
+            nameIncomeArray = incomeNames //no need to call viewDidLoad
+        }
+    }
+    var valuesIncomeArray:[String]!
+    var incomeValues:[String]!{
+        didSet{
+            valuesIncomeArray = incomeValues
+        }
     }
     
+    
+
+    @IBOutlet weak var tableView: UITableView!{
+        didSet {
+            tableView.dataSource = self
+        }
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        title = "Result"
+        tableView.dataSource = self
+        tableView.delegate = self
+        let imageView = UIImageView(image: UIImage(named: "RegularBig.png"))
+        imageView.frame = (view.viewWithTag(2)?.frame)!
+        imageView.contentMode = UIViewContentMode.scaleAspectFill
+        
+        tableView.frame = (view.viewWithTag(2)?.frame)!
+        self.tableView.backgroundView = imageView
+       
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        //blurView.frame = imageView.bounds
+        //imageView.addSubview(blurView)
+        blurEffectView.frame.size = CGSize(width: 320, height: 67)
+        
+        //self.view.viewWithTag(2)?.addSubview(imageView)
+        self.view.viewWithTag(2)?.addSubview(blurEffectView)
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        
+        
+    }
+    
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return nameIncomeArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
-            else {
-                return UITableViewCell()
+        var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+        if cell == nil {
+            cell = UITableViewCell(style: .value1, reuseIdentifier: "cell")
         }
         
-        let foods = values[indexPath.row]
-        cell.textLabel?.text = (foods as AnyObject).name
-        cell.detailTextLabel?.text = String(values.count)
+        cell?.backgroundColor = UIColor.clear
+        cell?.textLabel?.textColor = UIColor.white
+        cell?.textLabel?.text = nameIncomeArray[indexPath.row] + " " + valuesIncomeArray[indexPath.row] + "grams"
+        //cell?.detailTextLabel?.text = valuesIncomeArray[indexPath.row]
         
-        return cell
+        return cell!
     }
 
     
-  
+    
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
      
     }
-    /*
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        StreamDataService.instance.downloadStreamsForGame(game) {
-            for stream in StreamDataService.instance.streams {
-                stream.downloadStreamImage {
-                    self.streamsTableView.reloadData()
-                }
-                
-            }
-        }
-        
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        StreamDataService.instance.removeAllStreams()
-    }
-    */
-  
-    /*
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return StreamDataService.instance.streams.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = streamsTableView.dequeueReusableCell(withIdentifier: "StreamCell", for: indexPath ) as? StreamCell
-        {
-            
-            let stream = StreamDataService.instance.streams[indexPath.row]
-            cell.configureCell(stream)
-            return cell
-            
-        } else {
-            
-            return StreamCell()
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return (streamsTableView.bounds.width / 16) * 9
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let stream = StreamDataService.instance.streams[indexPath.row]
-        
-        openStream(stream)
-    }
-
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-*/
 }
-
-
+    
