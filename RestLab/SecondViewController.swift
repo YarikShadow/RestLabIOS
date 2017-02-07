@@ -37,6 +37,7 @@ class SecondViewController: UIViewController {
     @IBOutlet weak var percentageDishesTwo: UITextField!
     @IBOutlet weak var percentageDishesThree: UITextField!
     @IBOutlet weak var numberMenu: UITextField!
+    var arrayOfInputFields:[UITextField] = []
     
     //end
     
@@ -216,6 +217,9 @@ class SecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //array
+        calculationButton.backgroundColor = UIColor.purple
+        
         for element in incomeNames {
             print(element)
         }
@@ -242,18 +246,25 @@ class SecondViewController: UIViewController {
         self.view.viewWithTag(2)?.addSubview(blurEffectView)
         nameOfDishes.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         
+        calculationButton.layer.cornerRadius = 5
         numberPerDay.layer.borderColor = UIColor.black.cgColor
         numberPerDay.layer.borderWidth = 1
+        numberPerDay.layer.cornerRadius = 5
         percentageDishesOne.layer.borderColor = UIColor.black.cgColor
         percentageDishesOne.layer.borderWidth = 1
+        percentageDishesOne.layer.cornerRadius = 5
         nameOfDishes.layer.borderColor = UIColor.black.cgColor
         nameOfDishes.layer.borderWidth = 1
+        nameOfDishes.layer.cornerRadius = 5
         percentageDishesTwo.layer.borderColor = UIColor.black.cgColor
         percentageDishesTwo.layer.borderWidth = 1
+        percentageDishesTwo.layer.cornerRadius = 5
         percentageDishesThree.layer.borderColor = UIColor.black.cgColor
         percentageDishesThree.layer.borderWidth = 1
+        percentageDishesThree.layer.cornerRadius = 5
         numberMenu.layer.borderColor = UIColor.black.cgColor
         numberMenu.layer.borderWidth = 1
+        numberMenu.layer.cornerRadius = 5
         self.navigationController?.navigationBar.tintColor = UIColor.white
 
     }

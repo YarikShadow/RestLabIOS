@@ -23,16 +23,17 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
     //For input
     var textView:UITextField!
     var textViewTwo:UITextField!
+    var saveButton:UIButton!
     var arrayOfTextFields:[UITextField] = []
     var arrayOfValueFields:[UITextField] = []
     var arrayOfNames:[String] = []
     var arrayOfValues:[String] = []
     //
     
- 
+    var writeDidNames:Bool = false
+    var writeDidValues:Bool = false
     
     
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +41,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
         
        //self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
        // self.navigationController?.navigationBar.shadowImage = UIImage()
-      //  self.navigationController?.navigationBar.isTranslucent = true
+       //  self.navigationController?.navigationBar.isTranslucent = true
          imageView = UIImageView(image: UIImage(named: "RegularBig.png"))
          imageView.frame = (view.viewWithTag(2)?.frame)!
          title = "Igred"
@@ -79,9 +80,10 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
     
     @IBAction func InputFinish(_ sender: UIBarButtonItem) {
         view.viewWithTag(1)?.endEditing(true)
+        
        
-
         self.performSegue(withIdentifier: "Second", sender: sender)
+        
         
     }
     
@@ -138,31 +140,105 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
                 textViewTwo.alpha = 0.8
                 textViewTwo.layer.borderWidth = 1
             }
-       
+        
+        let finishPoint = CGPoint(x: 112,  y: 230 + Int(textViewHeight * (number! + 1)))
+        saveButton = UIButton(frame: CGRect(x: Int(finishPoint.x), y: Int(finishPoint.y),width: textViewWidth, height: textViewHeight))
+        //saveButton.frame = CGRect(x: 160, y: 100, width: 50, height: 50)
+        saveButton.setTitle("Save", for: .normal)
+        saveButton.backgroundColor = UIColor.purple
+        saveButton.addTarget(self, action: #selector(savingNamesAndValues), for: .touchUpInside)
+        saveButton.layer.cornerRadius = 5
+        /*
+        let blur = UIVisualEffectView(effect: UIBlurEffect(style:
+            UIBlurEffectStyle.light))
+        blur.frame = saveButton.bounds
+        blur.isUserInteractionEnabled = false
+        saveButton.insertSubview(blur, at: 0)
+        blur.layer.cornerRadius = 0.5 * saveButton.bounds.size.width
+        blur.clipsToBounds = true
+         */
+        
+        self.view.viewWithTag(1)?.addSubview(saveButton)
+        
+        
+        
         advice.isHidden = false
         adviceForValues.isHidden = false
+    }
+    
+    
+    func savingNamesAndValues(sender: UIButton!) {
+        view.viewWithTag(1)?.endEditing(true)
+        
+        
+        for element in arrayOfTextFields {
+            if element.text  == "" {
+                writeDidNames = false
+            } else {
+                writeDidNames = true
+            }
+            print(writeDidNames)
+        }
+        
+        for element in arrayOfValueFields {
+            if element.text  == "" {
+                writeDidValues = false
+            } else {
+                writeDidValues = true
+            }
+            print(writeDidValues)
+        }
+        
+        
+        if writeDidNames == true && writeDidValues == true {
+            for element in arrayOfTextFields {
+                arrayOfNames.append(element.text!)
+            }
+            
+            for element in arrayOfValueFields {
+                
+                
+                if Int(element.text!) != nil {
+                arrayOfValues.append(element.text!)
+                } else {
+                    let alert = UIAlertController(title: "Error", message: "In second colums must be only numbers", preferredStyle: .alert)
+                    
+                   let cancelAction = UIAlertAction(title: "Return", style: .cancel, handler: nil)
+                   alert.addAction(cancelAction)
+                   present(alert, animated: true, completion: nil)
+
+                }
+            }
+            
+            for element in arrayOfNames {
+                print(element)
+            }
+            
+            for element in arrayOfValues {
+                print(element)
+            }
+
+        } else {
+            let alert = UIAlertController(title: "Error", message: "Please, enter all names and values", preferredStyle: .alert)
+            
+            let cancelAction = UIAlertAction(title: "Return", style: .default, handler: nil)
+            alert.addAction(cancelAction)
+            present(alert, animated: true, completion: nil)
+        }
+        
+        let alert = UIAlertController(title: "Sucsess", message: "Now press Done", preferredStyle: .alert)
+    
+        let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+       alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
+        
     }
    
 
     @IBAction func doneeeee(_ sender: UIButton) {
         
         
-        for element in arrayOfTextFields {
-            arrayOfNames.append(element.text!)
-        }
         
-        for element in arrayOfValueFields {
-            arrayOfValues.append(element.text!)
-        }
-        
-        for element in arrayOfNames {
-            print(element)
-        }
-        
-        for element in arrayOfValues {
-            print(element)
-        }
-       
     }
    
  

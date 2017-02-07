@@ -20,7 +20,6 @@
 		8479C59A1E3125C90076A5CE /* SingInBig.png in Resources */ = {isa = PBXBuildFile; fileRef = 8479C5991E3125C90076A5CE /* SingInBig.png */; };
 		8479C59C1E3125F40076A5CE /* RegularBig.png in Resources */ = {isa = PBXBuildFile; fileRef = 8479C59B1E3125F40076A5CE /* RegularBig.png */; };
 		84C4A0DF1E2FC48D005B2468 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C4A0DE1E2FC48D005B2468 /* ViewController.swift */; };
-		84C4A0E11E2FE266005B2468 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C4A0E01E2FE266005B2468 /* FirstViewController.swift */; };
 		84DDF7531E353B6B003F7F33 /* WelcomeNew.png in Resources */ = {isa = PBXBuildFile; fileRef = 84DDF7521E353B6B003F7F33 /* WelcomeNew.png */; };
 		84DDF7551E353B76003F7F33 /* SingInNew.png in Resources */ = {isa = PBXBuildFile; fileRef = 84DDF7541E353B76003F7F33 /* SingInNew.png */; };
 /* End PBXBuildFile section */
@@ -42,7 +41,6 @@
 		8479C5991E3125C90076A5CE /* SingInBig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SingInBig.png; sourceTree = "<group>"; };
 		8479C59B1E3125F40076A5CE /* RegularBig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RegularBig.png; sourceTree = "<group>"; };
 		84C4A0DE1E2FC48D005B2468 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		84C4A0E01E2FE266005B2468 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		84DDF7521E353B6B003F7F33 /* WelcomeNew.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WelcomeNew.png; sourceTree = "<group>"; };
 		84DDF7541E353B76003F7F33 /* SingInNew.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SingInNew.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,7 +76,6 @@
 			isa = PBXGroup;
 			children = (
 				8448E3081DDD1CB000F74B5A /* AppDelegate.swift */,
-				84C4A0E01E2FE266005B2468 /* FirstViewController.swift */,
 				84C4A0DE1E2FC48D005B2468 /* ViewController.swift */,
 				8430A3A81E143F3F001C83C4 /* SecondViewController.swift */,
 				8408E9F31E18729700D45B45 /* ThirdViewController.swift */,
@@ -182,7 +179,6 @@
 				84C4A0DF1E2FC48D005B2468 /* ViewController.swift in Sources */,
 				8430A3A91E143F3F001C83C4 /* SecondViewController.swift in Sources */,
 				8408E9F41E18729700D45B45 /* ThirdViewController.swift in Sources */,
-				84C4A0E11E2FE266005B2468 /* FirstViewController.swift in Sources */,
 				8448E3091DDD1CB000F74B5A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

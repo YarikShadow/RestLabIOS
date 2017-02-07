@@ -70,8 +70,9 @@ class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         cell?.backgroundColor = UIColor.clear
         cell?.textLabel?.textColor = UIColor.white
-        cell?.textLabel?.text = nameIncomeArray[indexPath.row] + " " + valuesIncomeArray[indexPath.row] + "grams"
-        //cell?.detailTextLabel?.text = valuesIncomeArray[indexPath.row]
+        cell?.detailTextLabel?.textColor = UIColor.white
+        cell?.textLabel?.text = nameIncomeArray[indexPath.row]
+        cell?.detailTextLabel?.text = valuesIncomeArray[indexPath.row] + "grams"
         
         return cell!
     }
