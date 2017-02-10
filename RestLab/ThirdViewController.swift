@@ -33,6 +33,8 @@ class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         title = "Result"
         tableView.dataSource = self
         tableView.delegate = self

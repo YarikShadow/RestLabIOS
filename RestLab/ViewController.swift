@@ -37,11 +37,9 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //addBlurEffect()
         
-       //self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-       // self.navigationController?.navigationBar.shadowImage = UIImage()
-       //  self.navigationController?.navigationBar.isTranslucent = true
+        
+        
          imageView = UIImageView(image: UIImage(named: "RegularBig.png"))
          imageView.frame = (view.viewWithTag(2)?.frame)!
          title = "Igred"
@@ -54,10 +52,10 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
         
         let blurEffect = UIBlurEffect(style:.light)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
-        
-        
         blurEffectView.frame.size = CGSize(width: 320, height: 67)
-        
+        let blur = UIVisualEffectView(effect: blurEffect)
+        blur.frame.size = imageView.frame.size
+        self.imageView.addSubview(blur)
         self.view.viewWithTag(2)?.addSubview(blurEffectView)
         //self.navigationController?.navigationBar.sendSubview(toBack: blurEffectView)
          /*
@@ -229,18 +227,12 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
         let alert = UIAlertController(title: "Sucsess", message: "Now press Done", preferredStyle: .alert)
     
         let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-       alert.addAction(cancelAction)
+        alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)
         
     }
    
-
-    @IBAction func doneeeee(_ sender: UIButton) {
-        
-        
-        
-    }
-   
+    
  
   // override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
    //     if segue.identifier == "Second" {
