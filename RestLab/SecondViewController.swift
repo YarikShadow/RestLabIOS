@@ -34,30 +34,20 @@ class SecondViewController: UIViewController {
     @IBOutlet weak var numberPerDay: UITextField!
     @IBOutlet weak var percentageDishesOne: UITextField!
     @IBOutlet weak var nameOfDishes: UITextField!
+    
     @IBOutlet weak var percentageDishesTwo: UITextField!
     @IBOutlet weak var percentageDishesThree: UITextField!
     @IBOutlet weak var numberMenu: UITextField!
     var arrayOfInputFields:[UITextField] = []
     
-    //end
-    
     // Output results
-    
     @IBOutlet weak var mainResult: UILabel!
     @IBOutlet weak var percentageTwoResult: UILabel!
     @IBOutlet weak var percentageThreeResult: UILabel!
     @IBOutlet weak var dishesPerNameResult: UILabel!
     @IBOutlet weak var desiredDishesName: UILabel!
     
-    //end
-    
-    @IBAction func EditEnd(_ sender: UITextField) {
-        self.view.endEditing(true)
-    }
-    
-    
-    
-    //MARK: Switchers
+    //SwitchUI
     @IBOutlet weak var first: UILabel!
     @IBOutlet weak var second: UILabel!
     @IBOutlet weak var firstSwitcher: UISwitch!
@@ -65,7 +55,53 @@ class SecondViewController: UIViewController {
     var enable:Bool = false
     var enableSecond:Bool = false
     
+    //FinalControls
+    @IBOutlet weak var showIngredTable: UIBarButtonItem!
+    var isCalculated:Bool = false
+    var isNamePassed:Bool = false
+    ////end
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        nameOfDishes.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        
+        for element in incomeNames {
+            print(element)
+        }
+        
+        title =  "Values"
+        
+        
+        let imageView = UIImageView(image: UIImage(named: "RegularBig.png"))
+        
+        imageView.frame = (view.viewWithTag(2)?.frame)!
+        imageView.contentMode = UIViewContentMode.scaleAspectFill
+        scrollView.backgroundColor = UIColor.clear
+        self.view.viewWithTag(1)?.backgroundColor = UIColor.clear
+        
+        
+        let blurEffect = UIBlurEffect(style:.light)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame.size = CGSize(width: 320, height: 67)
+        
+        
+        self.view.viewWithTag(2)?.addSubview(imageView)
+        self.view.viewWithTag(2)?.addSubview(scrollView)
+        self.view.viewWithTag(2)?.addSubview(blurEffectView)
+        
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        
+    }
+    
+    @IBAction func NameTyping(_ sender: UITextField) {
+        
+        desiredDishesName.text = nameOfDishes.text
+        
+    }
+    
+    
+    //MARK: Switchers
     @IBAction func OnOff(_ sender: UISwitch) {
         
         first.text = "Percentage of them"
@@ -76,7 +112,7 @@ class SecondViewController: UIViewController {
             percentageDishesTwo.isHidden = false
             secondSwitcher.isEnabled = true
             enable = true
-        
+            
         } else {
             
             first.isHidden = true
@@ -86,7 +122,7 @@ class SecondViewController: UIViewController {
             percentageDishesThree.isHidden = true
             enable = false
         }
-     }
+    }
     
     
     @IBAction func OnOffTwo(_ sender: UISwitch) {
@@ -96,7 +132,7 @@ class SecondViewController: UIViewController {
             second.isHidden = false
             percentageDishesThree.isHidden = false
             enableSecond = true
-        
+            
         } else if secondSwitcher.isOn != true {
             
             second.isHidden = true
@@ -106,22 +142,19 @@ class SecondViewController: UIViewController {
     }
     //
     
-    @IBAction func NameTyping(_ sender: UITextField) {
-        
-        desiredDishesName.text = nameOfDishes.text
-        
-    }
     // MARK: Main func //
     
-    func  calculating() {
+    func calculating() {
         
         if(self.numberPerDay.text != "" && self.percentageDishesOne.text != "" ) {
+            
             if isNamePassed == true  {
+                
                 if !(Int(percentageDishesOne.text!)! >= 100) || !(Int(percentageDishesOne.text!)! <= 0) {
-        
+                    
                     let resultOne:Double = (Double(numberPerDay.text!)!/Double(percentageDishesOne.text!)!) * Double(100)
                     mainResult.text = String(Int(resultOne))
-        
+                    
                     let resultPrst: Double = ( resultOne / Double(percentageDishesOne.text!)!)
                     dishesPerNameResult.text = String(Int(resultPrst))
                     isCalculated = true
@@ -130,35 +163,36 @@ class SecondViewController: UIViewController {
                     }
                     
                     // first switcher opertions
-        if enable == true {
-            
-            let resultTwo:Double = (resultOne/Double(percentageDishesTwo.text!)!) * Double(100)
-            percentageTwoResult.text = String(Int(resultTwo))
-            
-            let resultPrstTwo: Double = ( resultTwo / Double(percentageDishesOne.text!)!)
-            dishesPerNameResult.text = String(Int(resultPrstTwo))
-            isCalculated = true
-                if enableSecond == false {
-                    valuesIncomeArray.enumerated().forEach{ index, value in
-                        valuesIncomeArray[index] = String(Double(value)! * resultPrstTwo)
+                    if enable == true {
+                        
+                        let resultTwo:Double = (resultOne/Double(percentageDishesTwo.text!)!) * Double(100)
+                        percentageTwoResult.text = String(Int(resultTwo))
+                        
+                        let resultPrstTwo: Double = ( resultTwo / Double(percentageDishesOne.text!)!)
+                        dishesPerNameResult.text = String(Int(resultPrstTwo))
+                        isCalculated = true
+                        if enableSecond == false {
+                            valuesIncomeArray.enumerated().forEach{ index, value in
+                                valuesIncomeArray[index] = String(Double(value)! * resultPrstTwo)
+                            }
                         }
+                        // second switcher operations
+                        if enableSecond == true {
+                            
+                            
+                            let resultTree:Double = (resultTwo/Double(percentageDishesThree.text!)!) * Double(100)
+                            percentageThreeResult.text = String(Int(resultTree))
+                            
+                            let resultPrstThree: Double = ( resultTree / Double(percentageDishesOne.text!)!)
+                            dishesPerNameResult.text = String(Int(resultPrstThree))
+                            isCalculated = true
+                            valuesIncomeArray.enumerated().forEach{ index, value in
+                                valuesIncomeArray[index] = String(Double(value)! * resultPrstThree)
+                            }
+                            
                         }
-                 // second switcher operations
-        if enableSecond == true {
-                    
-                    let resultTree:Double = (resultTwo/Double(percentageDishesThree.text!)!) * Double(100)
-                  percentageThreeResult.text = String(Int(resultTree))
-                    
-                    let resultPrstThree: Double = ( resultTree / Double(percentageDishesOne.text!)!)
-                    dishesPerNameResult.text = String(Int(resultPrstThree))
-                    isCalculated = true
-                    valuesIncomeArray.enumerated().forEach{ index, value in
-                        valuesIncomeArray[index] = String(Double(value)! * resultPrstThree)
                     }
-
-            }
-        }
-                }else{
+                } else {
                     let alert = UIAlertController(title: "You wrote wrong percentage", message: "Please do it again", preferredStyle: .alert)
                     let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
                     alert.addAction(cancelAction)
@@ -166,13 +200,14 @@ class SecondViewController: UIViewController {
                 }
                 
             } else {
+                
                 let alert = UIAlertController(title: "You did not write name of the desired dishes", message: "Please fill this field for correct result", preferredStyle: .alert)
                 let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
                 alert.addAction(cancelAction)
                 present(alert, animated: true, completion: nil)
-
+                
             }
-        
+            
         } else {
             let alert = UIAlertController(title: "You did not write values", message: "Please fill first and second fields at least", preferredStyle: .alert)
             let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
@@ -182,17 +217,9 @@ class SecondViewController: UIViewController {
     }
     
     ///////
+
     
-    @IBOutlet weak var showIngredTable: UIBarButtonItem!
-    var isCalculated:Bool = false
-    var isNamePassed:Bool = false
-    
-    @IBAction func inputFinish(_ sender: Any) {
-        view.viewWithTag(1)?.endEditing(true)
-        
-        self.performSegue(withIdentifier: "Third", sender: sender)
-    }
-    
+  
    
 
     func textFieldDidChange(_ nameOfDishes: UITextField) {
@@ -214,69 +241,50 @@ class SecondViewController: UIViewController {
     }
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        //array
-        calculationButton.backgroundColor = UIColor.purple
-        
-        for element in incomeNames {
-            print(element)
-        }
+    
+    
+    
 
-        title =  "Values"
-        enterMenu.text = "Enter the number of dishes in the menu"
-        calculationButton.setTitle("Calculate",for: .normal)
+   func setupUI() {
+    
+    nameOfDishes.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+    setupUI()
+    enterMenu.text = "Enter the number of dishes in the menu"
+    calculationButton.setTitle("Calculate",for: .normal)
+    calculationButton.backgroundColor = UIColor.purple
+    calculationButton.layer.cornerRadius = 5
+    numberPerDay.layer.borderColor = UIColor.black.cgColor
+    numberPerDay.layer.borderWidth = 1
+    numberPerDay.layer.cornerRadius = 5
+    percentageDishesOne.layer.borderColor = UIColor.black.cgColor
+    percentageDishesOne.layer.borderWidth = 1
+    percentageDishesOne.layer.cornerRadius = 5
+    nameOfDishes.layer.borderColor = UIColor.black.cgColor
+    nameOfDishes.layer.borderWidth = 1
+    nameOfDishes.layer.cornerRadius = 5
+    percentageDishesTwo.layer.borderColor = UIColor.black.cgColor
+    percentageDishesTwo.layer.borderWidth = 1
+    percentageDishesTwo.layer.cornerRadius = 5
+    percentageDishesThree.layer.borderColor = UIColor.black.cgColor
+    percentageDishesThree.layer.borderWidth = 1
+    percentageDishesThree.layer.cornerRadius = 5
+    numberMenu.layer.borderColor = UIColor.black.cgColor
+    numberMenu.layer.borderWidth = 1
+    numberMenu.layer.cornerRadius = 5
+   
+    }
+    
+    @IBAction func EditEnd(_ sender: UITextField) {
+        self.view.endEditing(true)
+    }
+    
+    @IBAction func inputFinish(_ sender: Any) {
+        view.viewWithTag(1)?.endEditing(true)
         
-        let imageView = UIImageView(image: UIImage(named: "RegularBig.png"))
-        
-        imageView.frame = (view.viewWithTag(2)?.frame)!
-        imageView.contentMode = UIViewContentMode.scaleAspectFill
-        scrollView.backgroundColor = UIColor.clear
-        self.view.viewWithTag(1)?.backgroundColor = UIColor.clear
-        self.view.viewWithTag(2)?.addSubview(imageView)
-        self.view.viewWithTag(2)?.addSubview(scrollView)
-        
-        let blurEffect = UIBlurEffect(style:.light)
-        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-        
-        
-        blurEffectView.frame.size = CGSize(width: 320, height: 67)
-        
-        self.view.viewWithTag(2)?.addSubview(blurEffectView)
-        nameOfDishes.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
-        
-        calculationButton.layer.cornerRadius = 5
-        numberPerDay.layer.borderColor = UIColor.black.cgColor
-        numberPerDay.layer.borderWidth = 1
-        numberPerDay.layer.cornerRadius = 5
-        percentageDishesOne.layer.borderColor = UIColor.black.cgColor
-        percentageDishesOne.layer.borderWidth = 1
-        percentageDishesOne.layer.cornerRadius = 5
-        nameOfDishes.layer.borderColor = UIColor.black.cgColor
-        nameOfDishes.layer.borderWidth = 1
-        nameOfDishes.layer.cornerRadius = 5
-        percentageDishesTwo.layer.borderColor = UIColor.black.cgColor
-        percentageDishesTwo.layer.borderWidth = 1
-        percentageDishesTwo.layer.cornerRadius = 5
-        percentageDishesThree.layer.borderColor = UIColor.black.cgColor
-        percentageDishesThree.layer.borderWidth = 1
-        percentageDishesThree.layer.cornerRadius = 5
-        numberMenu.layer.borderColor = UIColor.black.cgColor
-        numberMenu.layer.borderWidth = 1
-        numberMenu.layer.cornerRadius = 5
-        self.navigationController?.navigationBar.tintColor = UIColor.white
-
+        self.performSegue(withIdentifier: "Third", sender: sender)
     }
     
     
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Third" {
             if let thirdVC = segue.destination as? ThirdViewController {
@@ -290,17 +298,5 @@ class SecondViewController: UIViewController {
     }
 
     
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 

@@ -69,6 +69,14 @@ class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDat
         if cell == nil {
             cell = UITableViewCell(style: .value1, reuseIdentifier: "cell")
         }
+        cell?.layer.transform = CATransform3DMakeScale(0.1,0.1,1)
+        UIView.animate(withDuration: 0.3, animations: {
+            cell?.layer.transform = CATransform3DMakeScale(1.05, 1.05, 1)
+        }, completion: { finished in
+            UIView.animate(withDuration: 0.1, animations: {
+                cell?.layer.transform = CATransform3DMakeScale(1,1,1)
+            })
+        })
         
         cell?.backgroundColor = UIColor.clear
         cell?.textLabel?.textColor = UIColor.white
@@ -79,13 +87,5 @@ class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return cell!
     }
 
-    
-    
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-     
-    }
 }
     

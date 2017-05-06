@@ -53,25 +53,26 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
         let blurEffect = UIBlurEffect(style:.light)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame.size = CGSize(width: 320, height: 67)
-        let blur = UIVisualEffectView(effect: blurEffect)
-        blur.frame.size = imageView.frame.size
-        self.imageView.addSubview(blur)
+        
+        //let blur = UIVisualEffectView(effect: blurEffect)
+        //blur.frame.size = imageView.frame.size
+        //self.imageView.addSubview(blur)
         self.view.viewWithTag(2)?.addSubview(blurEffectView)
-        //self.navigationController?.navigationBar.sendSubview(toBack: blurEffectView)
-         /*
-        ---------------------------------------------------
-        let color1 = UIColor(red: 36.0 / 255.0, green: 198.0 / 255.0, blue: 220.0 / 255.0, alpha: 1.0).cgColor
-        let color2 = UIColor(red: 81.0 / 255.0, green: 74.0 / 255.0, blue: 157.0 / 255.0, alpha: 1.0).cgColor
-        
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = self.view.bounds
-        gradientLayer.colors = [color1, color2]
-        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
-        gradientLayer.endPoint = CGPoint(x: 0.0, y:1.0)
-        
-        self.view.viewWithTag(1)?.layer.insertSublayer(gradientLayer, at: 0)
-        self.view.viewWithTag(2)?.layer.insertSublayer(gradientLayer, at: 0)
-        */
+//        //self.navigationController?.navigationBar.sendSubview(toBack: blurEffectView)
+//         
+//        ---------------------------------------------------
+//        let color1 = UIColor(red: 36.0 / 255.0, green: 198.0 / 255.0, blue: 220.0 / 255.0, alpha: 1.0).cgColor
+//        let color2 = UIColor(red: 81.0 / 255.0, green: 74.0 / 255.0, blue: 157.0 / 255.0, alpha: 1.0).cgColor
+//        
+//        let gradientLayer = CAGradientLayer()
+//        gradientLayer.frame = self.view.bounds
+//        gradientLayer.colors = [color1, color2]
+//        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
+//        gradientLayer.endPoint = CGPoint(x: 0.0, y:1.0)
+//        
+//        self.view.viewWithTag(1)?.layer.insertSublayer(gradientLayer, at: 0)
+//        self.view.viewWithTag(2)?.layer.insertSublayer(gradientLayer, at: 0)
+//
     }
    
     

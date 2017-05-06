@@ -440,10 +440,10 @@
             </objects>
             <point key="canvasLocation" x="4269.375" y="22.183098591549296"/>
         </scene>
-        <!--View Controller-->
+        <!--Start View Controller-->
         <scene sceneID="W5x-nz-uCq">
             <objects>
-                <viewController id="eQB-c7-xyz" sceneMemberID="viewController">
+                <viewController id="eQB-c7-xyz" customClass="StartViewController" customModule="RestLab" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hA1-CV-PAy"/>
                         <viewControllerLayoutGuide type="bottom" id="3eE-2d-zqU"/>
@@ -475,6 +475,9 @@
                             <constraint firstItem="XJj-lf-IJw" firstAttribute="top" secondItem="qF6-DT-X7y" secondAttribute="top" id="tcA-xa-qxt"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="startButton" destination="s6f-ay-B9R" id="hln-C7-T33"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k4l-1Y-Riy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
